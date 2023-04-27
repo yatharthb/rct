@@ -1,0 +1,10 @@
+.EndlessRunner {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.EndlessRunner canvas {
+  border: 1px solid black;
+}

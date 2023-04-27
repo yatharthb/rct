@@ -1,0 +1,40 @@
+.ImageGallery {
+  padding: 2rem 0;
+}
+
+.ImageGallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ImageGallery-thumbnail {
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.ImageGallery-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(100, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.ImageGallery-lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 100, 0, 0.3);
+}
