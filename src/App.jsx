@@ -1,7 +1,9 @@
 import './App.css'
 import ImageGallery from './components/ImageGallery';
 import EndlessRunner from './game/EndlessRunner';
-import SpriteDisplay from './SpriteDisplay'; // Import the SpriteDisplay component
+
+import HarmonographSimulator from './Harmonograph/HarmonographSimulator';
+
 
 
 const App = () => {
@@ -35,8 +37,8 @@ const App = () => {
   />
 </section>
       <section className="App-section">
-          <h2>Sprite Display</h2>
-          <SpriteDisplay /> {/* Use the SpriteDisplay component */}
+         
+          <HarmonographSimulator />
         </section>
 <section className="App-section">
   <EndlessRunner />
