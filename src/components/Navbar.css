@@ -1,0 +1,27 @@
+.Navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.Navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.Navbar li {
+  margin: 0 1rem;
+}
+
+.Navbar a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.Navbar a:hover {
+  color: #5fcf80;
+}

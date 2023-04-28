@@ -21,4 +21,9 @@ canvas {
   .sliders-container {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Reduce the width of the sliders by 20% */
+  .slider-item input[type="range"] {
+    width: 80%;
+  }
 }

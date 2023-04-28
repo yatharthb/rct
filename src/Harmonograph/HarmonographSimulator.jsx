@@ -6,10 +6,10 @@ const HarmonographSimulator = () => {
   const canvasRef = useRef(null);
   const [params, setParams] = useState({
     a1: 150,
-    f1: 3,
-    f2: 2,
+    f1: 5,
+    f2: 18,
     a2: 100,
-    f3: 4,
+    f3: 18,
     f4: 3,
   });
 
@@ -20,19 +20,36 @@ const HarmonographSimulator = () => {
     const centerY = canvas.height / 2;
 
     const drawPoint = (t, params) => {
-      const x =
-        centerX +
-        params.a1 * Math.sin(params.f1 * t + Math.PI / 16) * Math.exp(-0.02 * t) +
-        params.a2 * Math.sin(params.f2 * t + (3 * Math.PI) / 2) * Math.exp(-0.01 * t);
+  const x =
+    centerX +
+    params.a1 *
+      Math.sin(params.f1 * t + Math.PI / 16) *
+      Math.exp(-0.02 * t) +
+    params.a2 *
+      Math.sin(params.f2 * t + (3 * Math.PI) / 2) *
+      Math.exp(-0.01 * t);
+  const y =
+    centerY +
+    params.a1 *
+      Math.cos(params.f1 * t + Math.PI / 16) *
+      Math.exp(-0.02 * t) +
+    params.a2 *
+      Math.cos(params.f2 * t + (3 * Math.PI) / 2) *
+      Math.exp(-0.01 * t);
 
-      const y =
-        centerY +
-        params.a1 * Math.cos(params.f1 * t + Math.PI / 16) * Math.exp(-0.02 * t) +
-        params.a2 * Math.cos(params.f2 * t + (3 * Math.PI) / 2) * Math.exp(-0.01 * t);
+  const dx =
+    params.a1 *
+      Math.sin(params.f3 * t + Math.PI / 16) *
+      Math.exp(-0.02 * t);
+  const dy =
+    params.a1 *
+      Math.cos(params.f4 * t + Math.PI / 16) *
+      Math.exp(-0.02 * t);
 
-      ctx.fillStyle = 'black';
-      ctx.fillRect(x, y, 1, 1);
-    };
+  ctx.fillStyle = 'black';
+  ctx.fillRect(x + dx, y + dy, 1, 1);
+};
+
 
     const renderHarmonograph = (params) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
