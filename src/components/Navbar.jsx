@@ -16,7 +16,7 @@ const Navbar = () => {
           <Link to="/physics-playground">Physics Playground</Link>
         </li>
          <li>
-          <Link to="/cipher">Caesar Cipher</Link>
+          <Link to="/cipher">Cryptography Demo</Link>
         </li>
       </ul>
     </nav>
