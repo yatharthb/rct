@@ -4,6 +4,7 @@ import ImageGallery from './components/ImageGallery';
 import EndlessRunner from './game/EndlessRunner';
 import PhysicsPlayground from './components/PhysicsPlayground';
 import HarmonographSimulator from './Harmonograph/HarmonographSimulator';
+import CaesarCipher from './cipher/CaesarCipher';
 import Navbar from './components/Navbar';
 
 const Home = () => (
@@ -61,6 +62,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/harmonograph" element={<HarmonographSimulator />} />
           <Route path="/physics-playground" element={<PhysicsPlayground />} />
+           <Route path="/cipher" element={<CaesarCipher />} />
         </Routes>
       </Router>
     </div>
