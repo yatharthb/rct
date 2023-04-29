@@ -16,3 +16,16 @@
   display: flex;
   gap: 1rem;
 }
+
+.generatedKeys {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+
+.encryptedMessage {
+  word-wrap: break-word;
+}
+.result {
+  word-wrap: break-word;
+}

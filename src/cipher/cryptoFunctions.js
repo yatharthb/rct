@@ -10,10 +10,28 @@ export async function generateRSAKeys() {
     ["encrypt", "decrypt"]
   );
 
-  return keyPair;
+  const publicKeyJwk = await window.crypto.subtle.exportKey("jwk", keyPair.publicKey);
+  const privateKeyJwk = await window.crypto.subtle.exportKey("jwk", keyPair.privateKey);
+
+  return {
+    publicKey: publicKeyJwk,
+    privateKey: privateKeyJwk,
+  };
 }
 
-export async function rsaEncrypt(publicKey, message) {
+
+export async function rsaEncrypt(publicKeyJwk, message) {
+  const publicKey = await window.crypto.subtle.importKey(
+    "jwk",
+    publicKeyJwk,
+    {
+      name: "RSA-OAEP",
+      hash: "SHA-256",
+    },
+    true,
+    ["encrypt"]
+  );
+
   const encodedMessage = new TextEncoder().encode(message);
   const encryptedMessage = await window.crypto.subtle.encrypt(
     {
@@ -26,7 +44,18 @@ export async function rsaEncrypt(publicKey, message) {
   return new Uint8Array(encryptedMessage);
 }
 
-export async function rsaDecrypt(privateKey, encryptedMessage) {
+export async function rsaDecrypt(privateKeyJwk, encryptedMessage) {
+  const privateKey = await window.crypto.subtle.importKey(
+    "jwk",
+    privateKeyJwk,
+    {
+      name: "RSA-OAEP",
+      hash: "SHA-256",
+    },
+    true,
+    ["decrypt"]
+  );
+
   const decryptedMessage = await window.crypto.subtle.decrypt(
     {
       name: "RSA-OAEP",
