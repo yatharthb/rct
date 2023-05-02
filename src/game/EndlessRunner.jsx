@@ -7,6 +7,7 @@ const EndlessRunner = () => {
   const canvasRef = useRef(null);
   const [score, setScore] = useState(0); // Add score state
   const [highScore, setHighScore] = useState(0); // Add high score state
+  const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -49,35 +50,33 @@ const EndlessRunner = () => {
     let frameRate = 0;
 
     const update = () => {
-  if (isJumping) {
-    player.velocityY += player.gravity;
-    player.y += player.velocityY;
-    if (player.y >= canvas.height - 60) {
-      player.y = canvas.height - 60;
-      isJumping = false;
-    }
-  }
+      if (isJumping) {
+        player.velocityY += player.gravity;
+        player.y += player.velocityY;
+        if (player.y >= canvas.height - 60) {
+          player.y = canvas.height - 60;
+          isJumping = false;
+        }
+      }
 
-  obstacle.x -= obstacle.speed;
-  if (obstacle.x < -20) {
-    obstacle.x = canvas.width;
-  }
+      obstacle.x -= obstacle.speed;
+      if (obstacle.x < -20) {
+        obstacle.x = canvas.width;
+      }
 
-  if (
-    player.x < obstacle.x + obstacle.width &&
-    player.x + player.width > obstacle.x &&
-    player.y < obstacle.y + obstacle.height &&
-    player.y + player.height > obstacle.y
-  ) {
-    isGameOver = true;
-  }
-  if (obstacle.x + obstacle.width >= player.x && obstacle.x + obstacle.width < player.x + player.width) {
-    setScore((prevScore) => prevScore + 1);
-  }
-  frameRate++;
-};
-
-
+      if (
+        player.x < obstacle.x + obstacle.width &&
+        player.x + player.width > obstacle.x &&
+        player.y < obstacle.y + obstacle.height &&
+        player.y + player.height > obstacle.y
+      ) {
+        isGameOver = true;
+      }
+      if (obstacle.x + obstacle.width >= player.x && obstacle.x + obstacle.width < player.x + player.width) {
+        setScore((prevScore) => prevScore + 1);
+      }
+      frameRate++;
+    };
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -101,56 +100,45 @@ const EndlessRunner = () => {
       ctx.fillText(`High Score: ${highScore}`, 10, 40);
     };
 
-    const gameLoop = () => {
-      if (!isGameOver) {
-        update();
-        draw();
-        requestId = requestAnimationFrame(gameLoop);
-      } else {
-        // Update the high score if the current score is higher
-        if (score > highScore) {
-          setHighScore(score);
-        }
-        // Reset the score
-                setScore(0);
-        // Reset the game state
-        isGameOver = false;
-        obstacle.x = canvas.width;
-        player.y = canvas.height - 60;
-        player.velocityY = 0;
-        isJumping = false;
-        // Restart the game loop
-        gameLoop();
-      }
-    };
+  const gameLoop = () => {
+  if (!isGameOver) {
+    update();
+    draw();
+  }
+  requestId = requestAnimationFrame(gameLoop);
+};
 
-    document.addEventListener('keydown', (e) => {
-      if (e.code === 'Space') {
-        jump();
-      }
-    });
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Space') {
+    if (!isRunning) {
+      setIsRunning(true);
+      gameLoop();
+    } else {
+      jump();
+    }
+  }
+});
 
-    const onLoadHandler = () => {
-      if (playerSprite1.complete && playerSprite2.complete) {
-        gameLoop();
-      }
-    };
+const onLoadHandler = () => {
+  if (playerSprite1.complete && playerSprite2.complete) {
+    draw(); // Draw the initial state without starting the game loop
+  }
+};
 
-    playerSprite1.onload = onLoadHandler;
-    playerSprite2.onload = onLoadHandler;
+playerSprite1.onload = onLoadHandler;
+playerSprite2.onload = onLoadHandler;
 
-    return () => {
-      cancelAnimationFrame(requestId);
-    };
-  }, []);
- 
-  return (
-    <div className="EndlessRunner">
-      <h2>Endless Runner</h2>
-      <canvas ref={canvasRef} width="500" height="150"></canvas>
-    </div>
-  );
+return () => {
+  cancelAnimationFrame(requestId);
+};
+}, []);
+
+return (
+<div className="EndlessRunner">
+<h2>Endless Runner</h2>
+<canvas ref={canvasRef} width="500" height="150"></canvas>
+</div>
+);
 };
 
 export default EndlessRunner;
-

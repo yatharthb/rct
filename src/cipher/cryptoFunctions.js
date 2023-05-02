@@ -1,3 +1,32 @@
+import forge from "node-forge";
+import JSBI from "jsbi";
+
+export const generateDiffieHellmanKeys = async () => {
+  const p = await new Promise((resolve) => {
+    forge.prime.generateProbablePrime(256, (err, num) => {
+      if (err) throw err;
+      resolve(JSBI.BigInt(`0x${num.toString(16)}`));
+    });
+  });
+
+  const g = JSBI.BigInt(2); // Use 2 as a common generator
+
+  // Generate a random private key with 256 bits
+  const privateKey = JSBI.BigInt(`0x${forge.util.createBuffer(forge.random.getBytes(32)).toHex()}`);
+  const publicKey = JSBI.remainder(JSBI.exponentiate(g, privateKey), p);
+
+  return {
+    publicKey,
+    privateKey,
+    parameters: { p, g },
+  };
+};
+
+
+export const generateSharedSecret = (otherPartyPublicKey, privateKey, p, g) => {
+  return JSBI.remainder(JSBI.exponentiate(JSBI.BigInt(otherPartyPublicKey), privateKey), p);
+};
+
 export async function generateRSAKeys() {
   const keyPair = await window.crypto.subtle.generateKey(
     {
