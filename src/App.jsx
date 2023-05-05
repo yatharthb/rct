@@ -124,7 +124,7 @@ const Home = () => (
   <>
     <header className="App-header">
   <motion.h1 initial="initial" animate="animate" variants={fadeIn}>
-    My React Portfolio
+    Yatharth Bindal
   </motion.h1>
 </header>
 
@@ -207,7 +207,7 @@ Contact
 Feel free to reach out to me at:
 </motion.p>
 <motion.p initial="initial" animate="animate" variants={fadeIn}>
-<FontAwesomeIcon icon={faEnvelope} /> Email: my.email@example.com
+<FontAwesomeIcon icon={faEnvelope} /> Email: [first_name][last_name]@gmail.com
 </motion.p>
 </section>
 </Container>
