@@ -2,8 +2,31 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 import { motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import {
+  faCode,
+  faMicrochip,
+  faDatabase,
+  faServer,
+  faMobileAlt,
+  faTerminal,
+  faChartColumn,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faPython,
+  faJsSquare,
+  faRust,
+  faReact,
+  faSwift,
+  faJava,
+  faLinux,
+  faNodeJs,
+  faAngular,
+  faHtml5,
+  faCss3Alt,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './App.css';
 import ImageGallery from './components/ImageGallery';
 import EndlessRunner from './game/EndlessRunner';
@@ -19,35 +42,38 @@ const fadeIn = {
 
 const skills = [
   {
-    category: 'Programming Languages',
+    category: "Programming Languages",
     items: [
-      { name: 'C++' },
-      { name: 'Python' },
-      { name: 'Java' },
-      { name: 'Swift' },
-      { name: 'Rust' },
+      { name: "C++", icon: faCode },
+      { name: "Python", icon: faPython },
+      { name: "Java", icon: faJava },
+      { name: "Swift", icon: faSwift },
+      { name: "Rust", icon: faRust },
     ],
   },
   {
-    category: 'Web Development',
+    category: "Web Development",
     items: [
-      { name: 'HTML' },
-      { name: 'CSS' },
-      { name: 'Javascript (Angular, React, Node)' },
+      { name: "HTML", icon: faHtml5 },
+      { name: "CSS", icon: faCss3Alt },
+      { name: "Javascript", icon: faJsSquare },
+      { name: "React", icon: faReact },
+      { name: "Angular", icon: faAngular },
+      { name: "Typescript", icon: faCode },
     ],
   },
   {
-    category: 'Miscellaneous',
+    category: "Miscellaneous",
     items: [
-      { name: 'Algorithms' },
-      { name: 'Distributed Systems' },
-      { name: 'gRPC' },
-      { name: 'Linux' },
-      { name: 'Shell Scripting' },
-      { name: 'PostgreSQL' },
-      { name: 'MongoDB' },
-      { name: 'FactSet' },
-      { name: 'Bloomberg Terminal' },
+      { name: "Algorithms", icon: faMicrochip },
+      { name: "Distributed Systems", icon: faServer },
+      { name: "gRPC", icon: faCode },
+      { name: "Linux", icon: faLinux },
+      { name: "Shell Scripting", icon: faTerminal },
+      { name: "PostgreSQL", icon: faDatabase },
+      { name: "MongoDB", icon: faDatabase },
+      { name: "FactSet", icon: faCode },
+      { name: "Bloomberg Terminal", icon: faChartColumn },
     ],
   },
 ];
@@ -138,24 +164,25 @@ const Home = () => (
         </motion.p>
       </section>
       <section className="App-section">
-        <motion.h2 initial="initial" animate="animate" variants={fadeIn}>
-          Skills
-        </motion.h2>
-        {skills.map((skillGroup, index) => (
-          <div key={index}>
-            <motion.h3 initial="initial" animate="animate" variants={fadeIn}>
-              {skillGroup.category}
-            </motion.h3>
-            <div className="skills-container">
-              {skillGroup.items.map((skill, index) => (
-                <div key={index} className="skill-item">
-                  {skill.name}
-                </div>
-              ))}
-            </div>
+      <motion.h2 initial="initial" animate="animate" variants={fadeIn}>
+        Skills
+      </motion.h2>
+      {skills.map((skillGroup, index) => (
+        <div key={index}>
+          <motion.h3 initial="initial" animate="animate" variants={fadeIn}>
+            {skillGroup.category}
+          </motion.h3>
+          <div className="skills-container">
+            {skillGroup.items.map((skill, index) => (
+              <div key={index} className="skill-item">
+                <FontAwesomeIcon icon={skill.icon} style={{ marginRight: "0.5rem" }} />
+                {skill.name}
+              </div>
+            ))}
           </div>
-        ))}
-      </section>
+        </div>
+      ))}
+    </section>
       <section className="App-section">
         <motion.h2 initial="initial" animate="animate" variants={fadeIn}>
           Coursework
@@ -200,16 +227,41 @@ full: 'bbn.png',
 <EndlessRunner />
 </section>
 <section className="App-section">
-<motion.h2 initial="initial" animate="animate" variants={fadeIn}>
-Contact
-</motion.h2>
-<motion.p initial="initial" animate="animate" variants={fadeIn}>
-Feel free to reach out to me at:
-</motion.p>
-<motion.p initial="initial" animate="animate" variants={fadeIn}>
-<FontAwesomeIcon icon={faEnvelope} /> Email: [first_name][last_name]@gmail.com
-</motion.p>
+  <motion.h2 initial="initial" animate="animate" variants={fadeIn}>
+    Contact
+  </motion.h2>
+  <motion.p initial="initial" animate="animate" variants={fadeIn}>
+    Yatharth Bindal
+  </motion.p>
+  <motion.p initial="initial" animate="animate" variants={fadeIn}>
+    Feel free to reach out to me at:
+  </motion.p>
+  <motion.p initial="initial" animate="animate" variants={fadeIn}>
+    <FontAwesomeIcon icon={faEnvelope} /> Email: [first_name][last_name]@gmail.com
+  </motion.p>
+  <motion.div
+    className="social-links"
+    initial="initial"
+    animate="animate"
+    variants={fadeIn}
+  >
+    <a
+      href="https://www.linkedin.com/in/yatharthbindal/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaLinkedin size={30} />
+    </a>
+    <a
+      href="https://github.com/yatharthb"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaGithub size={30} />
+    </a>
+  </motion.div>
 </section>
+
 </Container>
 <footer className="App-footer">
 <p>Thank you for visiting my portfolio!</p>

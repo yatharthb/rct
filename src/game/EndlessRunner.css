@@ -8,3 +8,22 @@
 .EndlessRunner canvas {
   border: 1px solid black;
 }
+.restart-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 10px 24px;
+  transition-duration: 0.4s;
+}
+
+.restart-btn:hover {
+  background-color: #45a049;
+  color: white;
+}
