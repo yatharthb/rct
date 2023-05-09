@@ -11,7 +11,7 @@ import {
   faServer,
   faMobileAlt,
   faTerminal,
-  faChartColumn,
+  faChartColumn, faGraduationCap, faBriefcase,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faPython,
@@ -34,11 +34,37 @@ import PhysicsPlayground from './components/PhysicsPlayground';
 import HarmonographSimulator from './Harmonograph/HarmonographSimulator';
 import CryptographyDemo from './cipher/CryptographyDemo';
 import Navbar from './components/Navbar';
-
+import Education from './components/Education';
+import WorkExperience from'./components/WorkExperience';
 const fadeIn = {
   initial: { opacity: 0 },
   animate: { opacity: 1, transition: { duration: 1 } },
 };
+
+
+const workExperience = [
+  {
+    company: 'Company A',
+    position: 'Software Engineer',
+    duration: 'June 2021 - August 2021',
+    description: 'Worked on ...',
+    icon: faBriefcase,
+  },
+  {
+    company: 'Company B',
+    position: 'Web Developer Intern',
+    duration: 'May 2020 - August 2020',
+    description: 'Developed ...',
+    icon: faBriefcase,
+  },
+  {
+    company: 'Company C',
+    position: 'Research Assistant',
+    duration: 'January 2019 - May 2019',
+    description: 'Assisted in ...',
+    icon: faBriefcase,
+  },
+];
 
 const skills = [
   {
@@ -148,6 +174,7 @@ const coursework = [
 
 const Home = () => (
   <>
+    
     <header className="App-header">
   <motion.h1 initial="initial" animate="animate" variants={fadeIn}>
     Yatharth Bindal
@@ -183,7 +210,11 @@ const Home = () => (
         </div>
       ))}
     </section>
-      <section className="App-section">
+
+<section className="App-section">
+<Education/>
+</section>
+    <section className="App-section">
         <motion.h2 initial="initial" animate="animate" variants={fadeIn}>
           Coursework
         </motion.h2>
@@ -201,6 +232,9 @@ const Home = () => (
 </div>
 </div>
 ))}
+</section>
+      <section className="App-section">
+<WorkExperience/>
 </section>
 <section className="App-section">
 <ImageGallery

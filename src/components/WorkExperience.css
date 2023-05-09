@@ -1,0 +1,65 @@
+/* WorkExperience.css */
+.work-experience {
+  /* Set the overall styles for the work experience section */
+}
+
+.work-experience-heading {
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.work-experience-entry {
+  /* Set the styles for the work experience entry */
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+
+.work-experience-icon {
+  /* Set the styles for the work experience icon */
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  color: #007bff;
+}
+
+.work-experience-content {
+  flex: 1;
+}
+
+.work-experience-title {
+  /* Set the styles for the work experience title */
+  margin: 0;
+  font-weight: 600;
+}
+
+.work-experience-subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.work-experience-position {
+  /* Set the styles for the work experience position */
+  margin: 5px 0 0 0;
+  font-weight: 400;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.work-experience-date {
+  /* Set the styles for the work experience date */
+  font-weight: 400;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.work-experience-description {
+  /* Set the styles for the work experience description */
+  margin: 10px 0 0 0;
+}

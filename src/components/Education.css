@@ -1,0 +1,47 @@
+/* Education.css */
+.education {
+  /* Set the overall styles for the education section */
+}
+
+.education-entry {
+  /* Set the styles for the education entry */
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.education-icon {
+  /* Set the styles for the education icon */
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.education-content {
+  flex: 1;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.education-title {
+  /* Set the styles for the education title */
+  margin: 0;
+}
+
+.education-years {
+  /* Set the styles for the education years */
+  font-weight: 400;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.education-description {
+  /* Set the styles for the education description */
+  margin: 10px 0 0 0;
+}
