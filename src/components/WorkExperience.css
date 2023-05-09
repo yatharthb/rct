@@ -62,4 +62,5 @@
 .work-experience-description {
   /* Set the styles for the work experience description */
   margin: 10px 0 0 0;
+  text-align: left;
 }
