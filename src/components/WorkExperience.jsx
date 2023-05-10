@@ -56,7 +56,7 @@ function WorkExperience() {
           "Implemented automated testing using C# scripting and Selenium for desktop, web and mobile applications, reducing manual testing efforts by 30% and increasing overall test coverage by 20%.",
           "Analyzed and documented software defects from user-reported crash reports, enhancing communication between the QA and development teams for faster resolution.",
         ]}
-        date="June 2020 - May 2020"
+        date="June 2020 - May 2022"
       />
     </div>
   );

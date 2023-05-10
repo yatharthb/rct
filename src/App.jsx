@@ -293,7 +293,13 @@ full: 'bbn.png',
     >
       <FaGithub size={30} />
     </a>
+    
   </motion.div>
+</section>
+<section className="App-section">
+  <a href="https://clustrmaps.com/site/1bulv" title="Visit tracker">
+    <img src="//www.clustrmaps.com/map_v2.png?d=xAqW8BiziwO5J_3ENWtVKURDfD_CNaM4XgUFIjE696c&cl=ffffff" style={{ width: '60%' }} />
+  </a>
 </section>
 
 </Container>
